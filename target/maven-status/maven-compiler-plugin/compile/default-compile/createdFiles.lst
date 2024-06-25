@@ -5,6 +5,8 @@ com\rgtech\sistemadevendas\model\Clientes.class
 com\rgtech\sistemadevendas\view\Frmcliente$4.class
 com\rgtech\sistemadevendas\view\Frmcliente$5.class
 com\rgtech\sistemadevendas\view\Frmcliente$2.class
+com\rgtech\sistemadevendas\jdbc\ConnectionFactory.class
 com\rgtech\sistemadevendas\view\Frmcliente$6.class
+com\rgtech\sistemadevendas\jdbc\TestaConexao.class
 com\rgtech\sistemadevendas\view\Frmcliente$3.class
 com\rgtech\sistemadevendas\view\Frmcliente.class
