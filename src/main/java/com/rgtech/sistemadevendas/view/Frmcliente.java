@@ -4,6 +4,9 @@
  */
 package com.rgtech.sistemadevendas.view;
 
+import com.rgtech.sistemadevendas.dao.ClientesDAO;
+import com.rgtech.sistemadevendas.model.Clientes;
+
 /**
  *
  * @author Rafae
@@ -31,43 +34,43 @@ public class Frmcliente extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtcodigo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtnome = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtemail = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtbairro = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        txtcelular = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        txttelefone = new javax.swing.JFormattedTextField();
+        txtcep = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtendereco = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtnumero = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtcidade = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txtcomplemento = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        txtrg = new javax.swing.JFormattedTextField();
         jLabel15 = new javax.swing.JLabel();
-        jFormattedTextField5 = new javax.swing.JFormattedTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtcpf = new javax.swing.JFormattedTextField();
+        combouf = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnnovo = new javax.swing.JButton();
+        btneditar = new javax.swing.JButton();
+        btnsalvar = new javax.swing.JButton();
+        btnexcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,29 +106,34 @@ public class Frmcliente extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Código:");
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtcodigo.setBackground(new java.awt.Color(255, 255, 255));
+        txtcodigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtcodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcodigoActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nome:");
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtnome.setBackground(new java.awt.Color(255, 255, 255));
+        txtnome.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("E-mail:");
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtemail.setBackground(new java.awt.Color(255, 255, 255));
+        txtemail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("CEP:");
 
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtbairro.setBackground(new java.awt.Color(255, 255, 255));
+        txtbairro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -135,50 +143,50 @@ public class Frmcliente extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Celular:");
 
-        jFormattedTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        txtcelular.setBackground(new java.awt.Color(255, 255, 255));
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ##### - ####")));
+            txtcelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ##### - ####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtcelular.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Telefone:");
 
-        jFormattedTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        txttelefone.setBackground(new java.awt.Color(255, 255, 255));
         try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ##### - ####")));
+            txttelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ##### - ####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txttelefone.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jFormattedTextField3.setBackground(new java.awt.Color(255, 255, 255));
+        txtcep.setBackground(new java.awt.Color(255, 255, 255));
         try {
-            jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##### - ###")));
+            txtcep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##### - ###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtcep.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Endereço:");
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtendereco.setBackground(new java.awt.Color(255, 255, 255));
+        txtendereco.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("N°:");
 
-        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        txtnumero.setBackground(new java.awt.Color(255, 255, 255));
+        txtnumero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtnumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                txtnumeroActionPerformed(evt);
             }
         });
 
@@ -186,15 +194,15 @@ public class Frmcliente extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Cidade:");
 
-        jTextField7.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtcidade.setBackground(new java.awt.Color(255, 255, 255));
+        txtcidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Complemento:");
 
-        jTextField8.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtcomplemento.setBackground(new java.awt.Color(255, 255, 255));
+        txtcomplemento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
@@ -204,33 +212,33 @@ public class Frmcliente extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("RG:");
 
-        jFormattedTextField4.setBackground(new java.awt.Color(255, 255, 255));
+        txtrg.setBackground(new java.awt.Color(255, 255, 255));
         try {
-            jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.### - #")));
+            txtrg.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.### - #")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtrg.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("CPF:");
 
-        jFormattedTextField5.setBackground(new java.awt.Color(255, 255, 255));
+        txtcpf.setBackground(new java.awt.Color(255, 255, 255));
         try {
-            jFormattedTextField5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.### - ##")));
+            txtcpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.### - ##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jFormattedTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txtcpf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtcpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField5ActionPerformed(evt);
+                txtcpfActionPerformed(evt);
             }
         });
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combouf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        combouf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SP", "MG", "RJ" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -242,61 +250,62 @@ public class Frmcliente extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField5)
+                        .addComponent(txtbairro)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField7)
+                        .addComponent(txtcidade)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtcomplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(24, 24, 24)
-                        .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(txtcep, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtendereco, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(combouf, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel14)
                                 .addGap(30, 30, 30)
-                                .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
+                                .addComponent(txtrg, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8)
+                                .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtcelular, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                                .addComponent(jLabel8)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txttelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -305,44 +314,44 @@ public class Frmcliente extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8)
-                        .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txttelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtcelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtcep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtendereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtnumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(combouf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtbairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtcidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcomplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
-                    .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
@@ -412,43 +421,43 @@ public class Frmcliente extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Consulta de clientes", jPanel3);
 
-        jButton2.setBackground(new java.awt.Color(255, 102, 102));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Novo");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnnovo.setBackground(new java.awt.Color(255, 102, 102));
+        btnnovo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnnovo.setForeground(new java.awt.Color(0, 0, 0));
+        btnnovo.setText("Novo");
+        btnnovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnnovoActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 102, 102));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("Editar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btneditar.setBackground(new java.awt.Color(255, 102, 102));
+        btneditar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btneditar.setForeground(new java.awt.Color(0, 0, 0));
+        btneditar.setText("Editar");
+        btneditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btneditarActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 102, 102));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("Salvar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnsalvar.setBackground(new java.awt.Color(255, 102, 102));
+        btnsalvar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnsalvar.setForeground(new java.awt.Color(0, 0, 0));
+        btnsalvar.setText("Salvar");
+        btnsalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnsalvarActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(255, 102, 102));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jButton5.setText("Excluir");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnexcluir.setBackground(new java.awt.Color(255, 102, 102));
+        btnexcluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnexcluir.setForeground(new java.awt.Color(0, 0, 0));
+        btnexcluir.setText("Excluir");
+        btnexcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnexcluirActionPerformed(evt);
             }
         });
 
@@ -463,13 +472,13 @@ public class Frmcliente extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnnovo)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(btneditar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btnsalvar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(btnexcluir)
                 .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
@@ -480,39 +489,63 @@ public class Frmcliente extends javax.swing.JFrame {
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton2))
+                    .addComponent(btnexcluir)
+                    .addComponent(btnsalvar)
+                    .addComponent(btneditar)
+                    .addComponent(btnnovo))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jFormattedTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField5ActionPerformed
+    private void txtcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcpfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField5ActionPerformed
+    }//GEN-LAST:event_txtcpfActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txtnumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txtnumeroActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnovoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnnovoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
+        
+            // botão salvar
+            Clientes obj = new Clientes();
+            obj.setNome(txtnome.getText());   // pega o que está na caixa e armazena no atributo nome do objeto
+            obj.setRg(txtrg.getText());
+            obj.setCpf(txtcpf.getText());
+            obj.setEmail(txtemail.getText());
+            obj.setTelefone(txttelefone.getText());
+            obj.setCelular(txtcelular.getText());
+            obj.setCep(txtcep.getText());
+            obj.setEndereco(txtendereco.getText());
+            obj.setNumero(Integer.parseInt(txtnumero.getText()));
+            obj.setComplemento(txtcomplemento.getText());
+            obj.setBairro(txtbairro.getText());
+            obj.setCidade(txtcidade.getText());
+            obj.setEstado(combouf.getSelectedItem().toString());
+            
+            ClientesDAO dao = new ClientesDAO();
+            dao.cadastrarCliente(obj);
+                    
+       
+    }//GEN-LAST:event_btnsalvarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btneditarActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnexcluirActionPerformed
+
+    private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcodigoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -550,17 +583,12 @@ public class Frmcliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btneditar;
+    private javax.swing.JButton btnexcluir;
+    private javax.swing.JButton btnnovo;
+    private javax.swing.JButton btnsalvar;
+    private javax.swing.JComboBox<String> combouf;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
-    private javax.swing.JFormattedTextField jFormattedTextField5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -583,14 +611,19 @@ public class Frmcliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField txtbairro;
+    private javax.swing.JFormattedTextField txtcelular;
+    private javax.swing.JFormattedTextField txtcep;
+    private javax.swing.JTextField txtcidade;
+    private javax.swing.JTextField txtcodigo;
+    private javax.swing.JTextField txtcomplemento;
+    private javax.swing.JFormattedTextField txtcpf;
+    private javax.swing.JTextField txtemail;
+    private javax.swing.JTextField txtendereco;
+    private javax.swing.JTextField txtnome;
+    private javax.swing.JTextField txtnumero;
+    private javax.swing.JFormattedTextField txtrg;
+    private javax.swing.JFormattedTextField txttelefone;
     // End of variables declaration//GEN-END:variables
 }
