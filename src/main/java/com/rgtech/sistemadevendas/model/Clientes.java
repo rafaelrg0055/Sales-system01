@@ -26,7 +26,7 @@ public class Clientes {
     private String estado;
     
     
-    // GET SET
+    // GET SET -------------------------------------
 
     public int getId() {
         return id;
