@@ -8,7 +8,10 @@ import com.rgtech.sistemadevendas.jdbc.ConnectionFactory;
 import com.rgtech.sistemadevendas.model.Clientes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -77,4 +80,46 @@ public class ClientesDAO {
     public void excluirCliente() {
         
     }
+    
+    
+    // Método de Listar Cliente
+    public List<Clientes> listarClientes() {
+        try {
+            // 1° passo: Criar a lista
+            List<Clientes> lista = new ArrayList<>();
+            
+            
+            // 2° passo: Criar o comando SQL, organizar e executar
+            String sql = "select * from tb_clientes";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            
+            // 3° passo: Pegar o resultado e adicionar na lista
+            while(rs.next()){
+                Clientes obj = new Clientes();
+                obj.setId(rs.getInt("id"));
+                obj.setNome(rs.getString("nome"));
+                obj.setRg(rs.getString("rg"));
+                obj.setCpf(rs.getString("cpf"));
+                obj.setEmail(rs.getString("email"));
+                obj.setTelefone(rs.getString("telefone"));
+                obj.setCelular(rs.getString("celular"));
+                obj.setCep(rs.getString("cep"));
+                obj.setEndereco(rs.getString("endereco"));
+                obj.setNumero(rs.getInt("numero"));
+                obj.setComplemento(rs.getString("complemento"));
+                obj.setBairro(rs.getString("bairro"));
+                obj.setCidade(rs.getString("cidade"));
+                obj.setEstado(rs.getString("estado"));
+                
+                lista.add(obj);  
+            }
+            return lista;
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+            return null;
+        }
+    }
+    
 }

@@ -1,8 +1,10 @@
 com\rgtech\sistemadevendas\SistemaDeVendas.class
 com\rgtech\sistemadevendas\model\Clientes.class
 com\rgtech\sistemadevendas\view\Frmcliente$4.class
+com\rgtech\sistemadevendas\view\DefaulTableModel.class
 com\rgtech\sistemadevendas\view\Frmcliente$5.class
 com\rgtech\sistemadevendas\jdbc\ConnectionFactory.class
+com\rgtech\sistemadevendas\view\Frmcliente$9.class
 com\rgtech\sistemadevendas\dao\ClientesDAO.class
 com\rgtech\sistemadevendas\view\Frmcliente$6.class
 com\rgtech\sistemadevendas\view\Frmcliente.class

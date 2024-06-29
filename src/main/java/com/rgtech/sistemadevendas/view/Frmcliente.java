@@ -6,6 +6,7 @@ package com.rgtech.sistemadevendas.view;
 
 import com.rgtech.sistemadevendas.dao.ClientesDAO;
 import com.rgtech.sistemadevendas.model.Clientes;
+import java.util.List;
 
 /**
  *
@@ -13,6 +14,33 @@ import com.rgtech.sistemadevendas.model.Clientes;
  */
 public class Frmcliente extends javax.swing.JFrame {
 
+    // Método Listar na tabela
+    public void listar(){
+        ClientesDAO dao = new ClientesDAO();
+        List<Clientes> lista = dao.listarClientes();
+        DefaulTableModel dados = (DefaulTableModel)tabelaClientes.getModel();
+        dados.setNumRows(0);
+        
+        for(Clientes c: lista){
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getNome(),
+                c.getRg(),
+                c.getCpf(),
+                c.getEmail(),
+                c.getTelefone(),
+                c.getCelular(),
+                c.getCep(),
+                c.getEndereco(),
+                c.getNumero(),
+                c.getComplemento(),
+                c.getBairro(),
+                c.getCidade(),
+                c.getEstado()
+            });
+        }
+    }
+    
     /**
      * Creates new form Frmcliente
      */
@@ -66,13 +94,18 @@ public class Frmcliente extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaClientes = new javax.swing.JTable();
         btnnovo = new javax.swing.JButton();
         btneditar = new javax.swing.JButton();
         btnsalvar = new javax.swing.JButton();
         btnexcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 204));
 
@@ -371,9 +404,9 @@ public class Frmcliente extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Pesquisar");
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setForeground(new java.awt.Color(51, 51, 51));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaClientes.setBackground(new java.awt.Color(255, 255, 255));
+        tabelaClientes.setForeground(new java.awt.Color(51, 51, 51));
+        tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -384,10 +417,10 @@ public class Frmcliente extends javax.swing.JFrame {
                 "Código:", "Nome:", "RG:", "CPF:", "E-mail:", "Telefone:", "Celular:", "CEP:", "Endereço:", "N°", "Comp:", "Bairro:", "Cidade:", "UF:"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(204, 204, 204));
-        jTable1.setSelectionBackground(new java.awt.Color(0, 0, 153));
-        jTable1.setSelectionForeground(new java.awt.Color(204, 204, 204));
-        jScrollPane1.setViewportView(jTable1);
+        tabelaClientes.setGridColor(new java.awt.Color(204, 204, 204));
+        tabelaClientes.setSelectionBackground(new java.awt.Color(0, 0, 153));
+        tabelaClientes.setSelectionForeground(new java.awt.Color(204, 204, 204));
+        jScrollPane1.setViewportView(tabelaClientes);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -531,10 +564,11 @@ public class Frmcliente extends javax.swing.JFrame {
             
             ClientesDAO dao = new ClientesDAO();
             dao.cadastrarCliente(obj);
-                    
        
+            
     }//GEN-LAST:event_btnsalvarActionPerformed
 
+    
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btneditarActionPerformed
@@ -546,6 +580,11 @@ public class Frmcliente extends javax.swing.JFrame {
     private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcodigoActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // Carregar a lista
+        listar();
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -610,8 +649,8 @@ public class Frmcliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable tabelaClientes;
     private javax.swing.JTextField txtbairro;
     private javax.swing.JFormattedTextField txtcelular;
     private javax.swing.JFormattedTextField txtcep;
